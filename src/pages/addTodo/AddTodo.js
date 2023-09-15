@@ -2,6 +2,8 @@ import { useRef } from "react";
 import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
 
+import "../styles/Add-todo.css";
+
 const AddTodo = () => {
   const todoText = useRef();
 
@@ -29,11 +31,20 @@ const AddTodo = () => {
         <Navbar />
       </>
       <div>
-        <h1>Add ToDo:</h1>
+        <h3>Add ToDo:</h3>
         <br />
-        <form onSubmit={addTodo}>
-          <input placeholder="Write Something!" ref={todoText} />
-          <button>Add</button>
+        <form className="form-div" onSubmit={addTodo}>
+          <div>
+            <input
+              className="input-todo"
+              placeholder="Write Something To-Do!"
+              ref={todoText}
+              required
+            />
+          </div>
+          <div>
+            <button className="add-button">Add</button>
+          </div>
         </form>
       </div>
     </>

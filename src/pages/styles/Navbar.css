@@ -1,0 +1,13 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(62, 243, 62);
+  border-bottom: solid 1px;
+}
+.nav-right {
+  font-size: large;
+  display: flex;
+  gap: 50px;
+  padding-right: 10px;
+}

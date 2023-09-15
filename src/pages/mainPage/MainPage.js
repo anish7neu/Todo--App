@@ -1,11 +1,11 @@
 import Navbar from "../Navbar";
 
+import "../styles/MainPage.css";
+
 const MainPage = () => {
   const getTodo = localStorage.getItem("todo")
     ? JSON.parse(localStorage.getItem("todo"))
     : [];
-
-  console.log(getTodo);
   return (
     <>
       <>
@@ -15,7 +15,7 @@ const MainPage = () => {
         <h3>Your ToDo:</h3>
         {getTodo.map((item) => (
           <>
-            <div>{item}</div>
+            <div className="todo-item">{item}</div>
           </>
         ))}
       </div>

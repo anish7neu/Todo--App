@@ -1,18 +1,33 @@
 import { Link, useNavigate } from "react-router-dom";
+import "./styles/Navbar.css";
 
 const Navbar = () => {
   return (
     <>
       <nav>
-        <h1>To-do V1</h1>
-        <div>
-          <Link to="/">
-            <div>Home</div>
-          </Link>
+        <h1 className="header">To-do V1</h1>
+        <div className="nav-right">
+          <div>
+            <Link
+              to="/"
+              style={{ textDecoration: "none", color: "rgb(62, 243, 62)" }}
+            >
+              <div>
+                <span className="nav-item">Home</span>
+              </div>
+            </Link>
+          </div>
 
-          <Link to="/add">
-            <div>Todo App</div>
-          </Link>
+          <div>
+            <Link
+              to="/add"
+              style={{ textDecoration: "none", color: "rgb(62, 243, 62)" }}
+            >
+              <div>
+                <span className="nav-item">Todo App</span>
+              </div>
+            </Link>
+          </div>
         </div>
       </nav>
     </>
