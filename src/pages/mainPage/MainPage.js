@@ -18,8 +18,10 @@ const MainPage = () => {
         {getTodo.map((item, index) => (
           <>
             <div className="todo-item">
-              <div>{item}</div>
-              <Link to={`/view/${index}`}>
+              <div>
+                {index + 1} - {item}
+              </div>
+              <Link to={`/view?id=${index}`}>
                 <AiOutlineEye size={"25px"} />
               </Link>
             </div>

@@ -12,7 +12,9 @@ const AllRoutes = () => {
           <Route path="/add" Component={AddTodo} />
 
           {/* Dymanic Routing. Rendering Dymanic Pages */}
-          <Route path="/view/:id" Component={ViewPage} />
+          {/* <Route path="/view/:id" Component={ViewPage} /> */}
+
+          <Route path="/view" Component={ViewPage} exact />
         </Routes>
       </BrowserRouter>
     </>
