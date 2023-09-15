@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 
 import "../styles/MainPage.css";
@@ -14,11 +15,13 @@ const MainPage = () => {
       </>
       <div>
         <h3>Your ToDo:</h3>
-        {getTodo.map((item) => (
+        {getTodo.map((item, index) => (
           <>
             <div className="todo-item">
               <div>{item}</div>
-              <AiOutlineEye size={"25px"} />
+              <Link to={`/view/${index}`}>
+                <AiOutlineEye size={"25px"} />
+              </Link>
             </div>
           </>
         ))}
