@@ -17,6 +17,16 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
+          <div>
+            <Link
+              to="/login"
+              style={{ textDecoration: "none", color: "rgb(62, 243, 62)" }}
+            >
+              <div>
+                <span className="nav-item">LogIn</span>
+              </div>
+            </Link>
+          </div>
 
           <div>
             <Link

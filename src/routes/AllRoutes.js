@@ -1,18 +1,36 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import MainPage from "../pages/mainPage/MainPage";
 import AddTodo from "../pages/addTodo/AddTodo";
 import ViewPage from "../pages/ViewPage/ViewPage";
+import LogIn from "../pages/LogIn/LogIn";
 
 const AllRoutes = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" Component={MainPage} />
-          <Route path="/add" Component={AddTodo} />
+          <Route path="/" element={<Navigate to="home" />} />
+          <Route path="/home" Component={MainPage} />
 
-          {/* Dymanic Routing. Rendering Dymanic Pages */}
+          <Route
+            path="/add"
+            element={
+              localStorage.getItem("loggedIn") ? (
+                <>
+                  <>
+                    <AddTodo />
+                  </>
+                </>
+              ) : (
+                <>
+                  <Navigate to="/login" />
+                </>
+              )
+            }
+          />
+
           <Route path="/view/:id" Component={ViewPage} />
+          <Route path="/login" Component={LogIn} />
         </Routes>
       </BrowserRouter>
     </>
