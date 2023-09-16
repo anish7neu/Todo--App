@@ -4,40 +4,54 @@ import Navbar from "../Navbar";
 const ViewPage = () => {
   const navigate = useNavigate();
 
-  /*  const getParams = useParams();
+  const getParams = useParams();
   const getID = getParams.id;
-  const getStorage = localStorage.getItem("todo")
-    ? JSON.parse(localStorage.getItem("todo"))
-    : [];
-
-  const getData = getStorage[getID]; */
-
-  //Query Parse
-  const getLocation = useLocation();
-
-  const getURLParams = new URLSearchParams(getLocation.search);
-
-  const getID = getURLParams.get("id");
   const getStorage = localStorage.getItem("todo")
     ? JSON.parse(localStorage.getItem("todo"))
     : [];
 
   const getData = getStorage[getID];
 
-  // console.log(getID);
+  const deleteTodo = () => {
+    getStorage.splice(getID, 1);
 
-  // console.log(getLocation.search);
-
-  return (
+    localStorage.setItem("todo", JSON.stringify(getStorage));
+    navigate("/", { replace: true });
+  };
+  <>
     <>
-      <>
-        <Navbar />
-      </>
-      <>
+      <Navbar />
+    </>
+    <>
+      <button
+        onClick={() => navigate("/")}
+        style={{
+          backgroundColor: "#32CD32",
+          color: "white",
+          padding: "10px",
+          border: "none",
+          marginTop: "10px",
+          borderRadius: "5px",
+          fontSize: "20px",
+          fontWeight: "bold",
+        }}
+      >
+        Go Back
+      </button>
+      <div
+        style={{
+          backgroundColor: "lightgrey",
+          padding: "10px",
+          marginTop: "10px",
+          borderRadius: "5px",
+        }}
+      >
+        {getData}
+      </div>
+      <div>
         <button
-          onClick={() => navigate("/")}
           style={{
-            backgroundColor: "#32CD32",
+            backgroundColor: "#EE4B2B",
             color: "white",
             padding: "10px",
             border: "none",
@@ -46,21 +60,12 @@ const ViewPage = () => {
             fontSize: "20px",
             fontWeight: "bold",
           }}
+          onClick={() => deleteTodo()}
         >
-          Go Back
+          Delete ToDo
         </button>
-        <div
-          style={{
-            backgroundColor: "lightgrey",
-            padding: "10px",
-            marginTop: "10px",
-            borderRadius: "5px",
-          }}
-        >
-          {getData}
-        </div>
-      </>
+      </div>
     </>
-  );
+  </>;
 };
 export default ViewPage;

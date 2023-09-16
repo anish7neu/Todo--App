@@ -21,7 +21,7 @@ const MainPage = () => {
               <div>
                 {index + 1} - {item}
               </div>
-              <Link to={`/view?id=${index}`}>
+              <Link to={`/view/${index}`}>
                 <AiOutlineEye size={"25px"} />
               </Link>
             </div>
